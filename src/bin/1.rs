@@ -1,4 +1,5 @@
-// Hello World https://doc.rust-lang.org/rust-by-example/hello.html
+// Hello World
+// https://doc.rust-lang.org/rust-by-example/hello.html
 
 // This is a comment, and is ignored by the compiler
 // You can test this code by clicking the "Run" button over there ->
