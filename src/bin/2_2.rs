@@ -1,3 +1,5 @@
+use core::fmt;
+
 // Primitives -> Tuples
 // https://doc.rust-lang.org/rust-by-example/primitives/tuples.html
 
@@ -9,9 +11,19 @@ fn reverse(pair: (i32, bool)) -> (bool, i32) {
     (boolean, integer)
 }
 
+fn transpose(Matrix(a, b, c, d): Matrix) -> Matrix {
+    Matrix(a, c, b, d)
+}
+
 // The following struct is for the activity.
 #[derive(Debug)]
 struct Matrix(f32, f32, f32, f32);
+
+impl fmt::Display for Matrix {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "( {} {} )\n( {} {} )", self.0, self.1, self.2, self.3)
+    }
+}
 
 fn main() {
     // A tuple with a bunch of different types
@@ -52,6 +64,7 @@ fn main() {
     println!("{:?}, {:?}, {:?}, {:?}", a, b, c, d);
 
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
-    println!("{:?}", matrix);
+    println!("Matrix:\n{}", matrix);
+    println!("Transpose:\n{}", transpose(matrix));
 
 }
